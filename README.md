@@ -1,17 +1,19 @@
 # Very low footprint JSON parser written in portable ANSI C.
 
-(This a fork of original repository with my cmake-integration and some fixes)
+(This a fork of original repository with my small changes: cmake-integration and some fixes)
 
 * BSD licensed with no dependencies (i.e. just drop the C file into your project)
 * Never recurses or allocates more memory than it needs
 * Very simple API with operator sugar for C++
 
-[![Build Status](https://secure.travis-ci.org/udp/json-parser.png)](http://travis-ci.org/udp/json-parser)
-
 _Want to serialize?  Check out [json-builder](https://github.com/udp/json-builder)!_
 
 Installing
 ----------
+
+    $ cmake ./
+    $ make
+    $ sudo make install
 
 There is now a makefile which will produce a libjsonparser static and dynamic library.  However, this
 is _not_ required to build json-parser, and the source files (`json.c` and `json.h`) should be happy
@@ -71,29 +73,5 @@ Custom allocator routines.  If NULL, the default `malloc` and `free` will be use
 
 The `user_data` pointer will be forwarded from `json_settings` to allow application
 context to be passed.
-
-
-Changes in version 1.1.0
-------------------------
-
-* UTF-8 byte order marks are now skipped if present
-
-* Allows cross-compilation by honoring --host if given (@wkz)
-
-* Maximum size for error buffer is now exposed in header (@LB--)
-
-* GCC warning for `static` after `const` fixed (@batrick)
-
-* Optional support for C-style line and block comments added (@Jin-W-FS)
-
-* `name_length` field added to object values 
-
-* It is now possible to retrieve the source line/column number of a parsed `json_value` when `JSON_TRACK_SOURCE` is enabled
-
-* The application may now extend `json_value` using the `value_extra` setting
-
-* Un-ambiguate pow call in the case of C++ overloaded pow (@fcartegnie)
-
-* Fix null pointer de-reference when a non-existing array is closed and no root value is present
 
 
