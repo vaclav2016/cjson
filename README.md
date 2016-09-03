@@ -1,12 +1,10 @@
-# Very low footprint JSON parser written in portable ANSI C.
+# Very low footprint JSON parser/builder written in portable ANSI C.
 
 This a fork of original repository with my small changes: cmake-integration and some fixes. Reason: I don't want have json.c and json.h at each my project, but `sudo make install` has been broken in both original repository. Also, only one of them support cmake. So, I create fork repository with more friendly installing process.
 
 * BSD licensed with no dependencies (i.e. just drop the C file into your project)
 * Never recurses or allocates more memory than it needs
 * Very simple API with operator sugar for C++
-
-_Want to serialize?  Check out [json-builder](https://github.com/udp/json-builder)!_
 
 Installing
 ----------
